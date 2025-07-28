@@ -31,25 +31,30 @@
 #     print("Max Profit:", maxProfit)
 
 
-nums = [7, 1, 5, 3, 6]
-total = 0
-result = []
+"""time to find best but of stock"""
 
-max_index = nums.index(max(nums))
-min_index = nums.index(min(nums))
+# nums = [7, 4, 2, 1, 10]
+# maxProfit = 0
+
+# for i in range(0, len(nums)):
+#     for j in range(i + 1, len(nums)):
+#         if nums[j] - nums[i] > maxProfit:
+#             maxProfit = nums[j] - nums[i]
+
+# print(maxProfit)
 
 
-nums = [7, 4, 2, 1]
+""" optimal """
 
-max_index = nums.index(max(nums))
-min_index = nums.index(min(nums))
+""" BEST SOLUTION """
 
-print("Max index:", max_index)
-print("Min index:", min_index)
 
-if min_index < max_index:
-    print("✅ Profit possible (Buy first, sell later)")
-elif min_index > max_index:
-    print("❌ No profit (Buy comes after sell, invalid)")
-else:
-    print("😅 Same index, no transaction")
+nums = [7, 4, 2, 1, 8]
+
+max_profit = float("-inf")
+min_price = 0
+
+for i in range(0, len(nums)):
+    min_price = min(min_price, nums[i])
+    max_profit = max(max_profit, nums[i] - min_price)
+print(max_profit)
